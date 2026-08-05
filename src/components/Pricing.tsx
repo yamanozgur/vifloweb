@@ -1,12 +1,96 @@
 import React, { useState } from 'react';
-import { Check, Sparkles } from 'lucide-react';
+import { Check, X, AlertTriangle, Sparkles, ShieldCheck, Lock } from 'lucide-react';
+
+interface ComparisonFeature {
+  name: string;
+  nameTr: string;
+  free: string;
+  freeStatus: 'ok' | 'warn' | 'lock';
+  premium: string;
+  premiumStatus: 'ok';
+}
 
 export const Pricing: React.FC = () => {
   const [isAnnual, setIsAnnual] = useState<boolean>(true);
 
+  const comparisonFeatures: ComparisonFeature[] = [
+    {
+      name: "Active Visa Tracking",
+      nameTr: "Aktif Vize Takibi",
+      free: "2 Active Visas (2 adet)",
+      freeStatus: "ok",
+      premium: "Unlimited (Sınırsız)",
+      premiumStatus: "ok"
+    },
+    {
+      name: "Passport Addition",
+      nameTr: "Pasaport Ekleme",
+      free: "1 Passport (1 adet)",
+      freeStatus: "ok",
+      premium: "Unlimited (Dual Citizenship / Çifte Vatandaşlık)",
+      premiumStatus: "ok"
+    },
+    {
+      name: "Residency Permit Tracker",
+      nameTr: "Oturum İzni Tracker",
+      free: "Locked (Kilitli)",
+      freeStatus: "lock",
+      premium: "Unlimited with Annual Day Counter (Yıllık gün sayacı ile)",
+      premiumStatus: "ok"
+    },
+    {
+      name: "Schengen 90/180 & Safe Return Calculator",
+      nameTr: "Schengen 90/180 & Güvenli Dönüş",
+      free: "Basic Counter (Temel Sayaç)",
+      freeStatus: "warn",
+      premium: "Advanced 180-Day Rolling Window & Full Reset Date (Gelişmiş Kayar Pencere & Sıfırlama Tarihi)",
+      premiumStatus: "ok"
+    },
+    {
+      name: "183-Day Tax Residency Watch",
+      nameTr: "183 Gün Vergi Yerleşimi Takibi",
+      free: "Locked (Kilitli)",
+      freeStatus: "lock",
+      premium: "Full Tracking & Smart Alerts (Tam Takip & Uyarılar)",
+      premiumStatus: "ok"
+    },
+    {
+      name: "Calendar Sync (.ics)",
+      nameTr: "Takvim Senkronizasyonu (.ics)",
+      free: "Locked (Kilitli)",
+      freeStatus: "lock",
+      premium: "Google & Apple Calendar Integration (Takvim Entegrasyonu)",
+      premiumStatus: "ok"
+    },
+    {
+      name: "Cloud Backup & Cross-Device Sync",
+      nameTr: "Bulut Yedekleme & Eşitleme",
+      free: "Local Storage Only (Sadece Yerel)",
+      freeStatus: "lock",
+      premium: "Firebase Cloud Sync (Multi-Device)",
+      premiumStatus: "ok"
+    },
+    {
+      name: "Export Reports & Footprint",
+      nameTr: "Dışa Aktarma (Export)",
+      free: "Locked (Kilitli)",
+      freeStatus: "lock",
+      premium: "PDF, CSV & Digital Footprint Card (PDF, CSV & Dijital Footprint Kartı)",
+      premiumStatus: "ok"
+    },
+    {
+      name: "Ad Experience",
+      nameTr: "Reklamlar",
+      free: "Sponsored Content (Sponsorlu İçerik)",
+      freeStatus: "warn",
+      premium: "100% Ad-Free (%100 Reklamsız)",
+      premiumStatus: "ok"
+    }
+  ];
+
   return (
-    <section id="pricing" className="py-24 px-6 bg-[#f2faf8] text-[#003837] relative">
-      <div className="max-w-5xl mx-auto space-y-12">
+    <section id="pricing" className="py-24 px-4 sm:px-6 bg-[#f2faf8] text-[#003837] relative">
+      <div className="max-w-5xl mx-auto space-y-16">
         {/* Section Header */}
         <div className="text-center space-y-4 max-w-xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#04aa92]/15 text-[#047867] border border-[#04aa92]/25 text-xs font-bold uppercase tracking-wider">
@@ -25,6 +109,7 @@ export const Pricing: React.FC = () => {
             <button
               onClick={() => setIsAnnual(!isAnnual)}
               className="w-14 h-8 bg-[#e0f4f1] rounded-full p-1 relative transition-colors focus:outline-none border border-[#04aa92]/30"
+              aria-label="Toggle annual or monthly billing"
             >
               <div 
                 className={`w-6 h-6 rounded-full bg-[#04aa92] transition-transform ${isAnnual ? 'translate-x-6' : 'translate-x-0'}`} 
@@ -40,34 +125,37 @@ export const Pricing: React.FC = () => {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch pt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           
           {/* Free Plan */}
           <div className="bg-white p-8 rounded-3xl border border-[#04aa92]/20 flex flex-col justify-between space-y-6 shadow-sm">
             <div className="space-y-4">
-              <div className="text-lg font-bold text-[#047867]">Free Plan</div>
+              <div className="text-lg font-bold text-[#047867]">Free Plan (Ücretsiz)</div>
               <div className="text-4xl font-black text-[#003837]">$0 <span className="text-sm font-normal text-[#047867]">/ forever</span></div>
               <p className="text-[#047867] text-sm font-medium">Essential visa & trip tracking for casual travelers.</p>
               <hr className="border-[#04aa92]/15" />
 
               <ul className="space-y-3 text-sm text-[#003837] font-medium">
                 <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-[#04aa92]" /> Track 1 Passport
+                  <Check className="w-4 h-4 text-[#04aa92] shrink-0" /> 1 Passport (1 Pasaport Ekleme)
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-[#04aa92]" /> Up to 3 Active Visas
+                  <Check className="w-4 h-4 text-[#04aa92] shrink-0" /> Up to 2 Active Visas (2 Aktif Vize Takibi)
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-[#04aa92]" /> 199+ Country visa requirements database
+                  <Check className="w-4 h-4 text-[#04aa92] shrink-0" /> 199+ Country visa requirements database
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-[#04aa92]" /> Basic Schengen 90/180 allowance check
+                  <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0" /> Basic Schengen 90/180 Counter (Temel Sayaç)
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-[#04aa92]" /> Travel History (Last 10 Trips)
+                  <Check className="w-4 h-4 text-[#04aa92] shrink-0" /> Local-Only Device Storage (Yerel Depolama)
                 </li>
-                <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-[#04aa92]" /> Local-only device storage
+                <li className="flex items-center gap-2.5 text-slate-400">
+                  <Lock className="w-4 h-4 text-slate-400 shrink-0" /> Residency Permit & Tax Residency Locked
+                </li>
+                <li className="flex items-center gap-2.5 text-slate-400">
+                  <Lock className="w-4 h-4 text-slate-400 shrink-0" /> Calendar Sync & Exports Locked
                 </li>
               </ul>
             </div>
@@ -82,8 +170,8 @@ export const Pricing: React.FC = () => {
 
           {/* Pro Plan (Featured) */}
           <div className="bg-[#0da98b] p-8 rounded-3xl border-2 border-white/40 flex flex-col justify-between space-y-6 relative shadow-xl text-white">
-            <div className="absolute -top-3.5 right-6 bg-white text-[#003837] text-xs font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-md">
-              7-Day Free Trial
+            <div className="absolute -top-3.5 right-6 bg-white text-[#003837] text-xs font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-md flex items-center gap-1">
+              <Sparkles className="w-3.5 h-3.5 text-[#0da98b]" /> 7-Day Free Trial
             </div>
 
             <div className="space-y-4">
@@ -102,28 +190,25 @@ export const Pricing: React.FC = () => {
 
               <ul className="space-y-3 text-sm text-white font-medium">
                 <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-white shrink-0" /> Unlimited Passports & Visas (Dual Citizenship)
+                  <Check className="w-4 h-4 text-white shrink-0" /> Unlimited Passports & Visas (Dual Citizenship / Çifte Vatandaşlık)
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-white shrink-0" /> Residency Permit & 183-Day Tax Watch
+                  <Check className="w-4 h-4 text-white shrink-0" /> Residency Permit & 183-Day Tax Residency Watch
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-white shrink-0" /> Advanced Schengen Rolling Calculator & Safe Return Date
+                  <Check className="w-4 h-4 text-white shrink-0" /> Advanced Schengen Rolling Window & Safe Return Date
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Check className="w-4 h-4 text-white shrink-0" /> Auto-Sync with Google & Apple Calendar (.ics)
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-white shrink-0" /> Multi-Device Encrypted Cloud Sync
+                  <Check className="w-4 h-4 text-white shrink-0" /> Multi-Device Encrypted Firebase Cloud Sync
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-white shrink-0" /> Exportable PDF & CSV Reports for Embassies/Tax
+                  <Check className="w-4 h-4 text-white shrink-0" /> Export PDF, CSV & Digital Footprint Share Card
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-white shrink-0" /> World Map Footprint & High-Res Share Cards
-                </li>
-                <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-white shrink-0" /> 100% Ad-Free & Smart Expiration Alerts
+                  <Check className="w-4 h-4 text-white shrink-0" /> 100% Ad-Free Experience (%100 Reklamsız)
                 </li>
               </ul>
             </div>
@@ -137,8 +222,74 @@ export const Pricing: React.FC = () => {
           </div>
 
         </div>
+
+        {/* Feature Comparison Table */}
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#04aa92]/20 shadow-md space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#04aa92]/15 pb-6">
+            <div>
+              <h3 className="text-xl sm:text-2xl font-black text-[#003837]">
+                Free vs Premium Özellik Karşılaştırması
+              </h3>
+              <p className="text-sm text-[#047867] mt-1 font-medium">
+                İhtiyacınıza en uygun Viflo planını seçin.
+              </p>
+            </div>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#04aa92]/10 text-[#047867] text-xs font-bold border border-[#04aa92]/20">
+              <ShieldCheck className="w-4 h-4 text-[#0da98b]" />
+              Her zaman iptal edilebilir
+            </div>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse min-w-[600px]">
+              <thead>
+                <tr className="border-b border-[#04aa92]/15 text-xs uppercase tracking-wider text-[#047867]">
+                  <th className="py-3 px-4 font-extrabold w-2/5">Özellik</th>
+                  <th className="py-3 px-4 font-extrabold w-3/10 text-center bg-slate-50/80 rounded-t-xl">Ücretsiz (Free) Plan</th>
+                  <th className="py-3 px-4 font-extrabold w-3/10 text-center bg-[#0da98b]/10 text-[#003837] rounded-t-xl">Premium Plan</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[#04aa92]/10 text-xs sm:text-sm">
+                {comparisonFeatures.map((item, idx) => (
+                  <tr key={idx} className="hover:bg-[#f0fbf9]/50 transition-colors">
+                    <td className="py-4 px-4 font-semibold text-[#003837]">
+                      <div>{item.nameTr}</div>
+                      <div className="text-[11px] text-[#047867]/70 font-normal">{item.name}</div>
+                    </td>
+                    <td className="py-4 px-4 text-center bg-slate-50/50">
+                      <div className="inline-flex items-center justify-center gap-1.5 font-medium text-slate-700">
+                        {item.freeStatus === 'lock' && (
+                          <span className="inline-flex items-center gap-1 text-red-600 bg-red-50 border border-red-200 px-2.5 py-1 rounded-full text-xs font-bold">
+                            <X className="w-3.5 h-3.5" /> {item.free}
+                          </span>
+                        )}
+                        {item.freeStatus === 'warn' && (
+                          <span className="inline-flex items-center gap-1 text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-full text-xs font-bold">
+                            <AlertTriangle className="w-3.5 h-3.5" /> {item.free}
+                          </span>
+                        )}
+                        {item.freeStatus === 'ok' && (
+                          <span className="inline-flex items-center gap-1 text-[#003837] bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full text-xs font-bold">
+                            <Check className="w-3.5 h-3.5 text-[#0da98b]" /> {item.free}
+                          </span>
+                        )}
+                      </div>
+                    </td>
+                    <td className="py-4 px-4 text-center bg-[#0da98b]/5 font-bold text-[#003837]">
+                      <span className="inline-flex items-center gap-1 text-[#003837] bg-[#0da98b]/15 border border-[#0da98b]/30 px-3 py-1 rounded-full text-xs font-black shadow-2xs">
+                        <Check className="w-3.5 h-3.5 text-[#0da98b]" /> {item.premium}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
     </section>
   );
 };
+
 
