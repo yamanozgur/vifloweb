@@ -20,8 +20,8 @@ export const Logo: React.FC<LogoProps> = ({
   };
 
   const logoSrc = variant === 'light'
-    ? "https://raw.githubusercontent.com/yamanozgur/vifloweb/main/viflo_white_vt.png"
-    : "https://raw.githubusercontent.com/yamanozgur/vifloweb/main/viflo_gr_vt.png";
+    ? "./viflo_white_vt.png"
+    : "./viflo_gr_vt.png";
 
   return (
     <div className="flex items-center group cursor-pointer select-none">
