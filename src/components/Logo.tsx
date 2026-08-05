@@ -19,9 +19,10 @@ export const Logo: React.FC<LogoProps> = ({
     '2xl': 'h-16'
   };
 
+  const baseUrl = import.meta.env.BASE_URL || '/';
   const logoSrc = variant === 'light'
-    ? "https://raw.githubusercontent.com/yamanozgur/vifloweb/main/public/viflo_white_vt.png"
-    : "https://raw.githubusercontent.com/yamanozgur/vifloweb/main/public/viflo_gr_vt.png";
+    ? `${baseUrl.endsWith('/') ? baseUrl : baseUrl + '/'}viflo_white_vt.png`
+    : `${baseUrl.endsWith('/') ? baseUrl : baseUrl + '/'}viflo_gr_vt.png`;
 
   return (
     <div className="flex items-center group cursor-pointer select-none">
