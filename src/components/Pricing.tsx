@@ -1,86 +1,12 @@
 import React, { useState } from 'react';
-import { Check, X, AlertTriangle, Sparkles, ShieldCheck, Lock } from 'lucide-react';
-
-interface ComparisonFeature {
-  name: string;
-  free: string;
-  freeStatus: 'ok' | 'warn' | 'lock';
-  premium: string;
-  premiumStatus: 'ok';
-}
+import { Check, AlertTriangle, Sparkles, Lock } from 'lucide-react';
 
 export const Pricing: React.FC = () => {
   const [isAnnual, setIsAnnual] = useState<boolean>(true);
 
-  const comparisonFeatures: ComparisonFeature[] = [
-    {
-      name: "Active Visa Tracking",
-      free: "2 Active Visas",
-      freeStatus: "ok",
-      premium: "Unlimited Visas",
-      premiumStatus: "ok"
-    },
-    {
-      name: "Passport Addition",
-      free: "1 Passport",
-      freeStatus: "ok",
-      premium: "Unlimited (Dual Citizenship)",
-      premiumStatus: "ok"
-    },
-    {
-      name: "Residency Permit Tracker",
-      free: "Locked",
-      freeStatus: "lock",
-      premium: "Unlimited with Annual Day Counter",
-      premiumStatus: "ok"
-    },
-    {
-      name: "Schengen 90/180 & Safe Return Calculator",
-      free: "Basic Counter",
-      freeStatus: "warn",
-      premium: "Advanced 180-Day Rolling Window & Reset Date",
-      premiumStatus: "ok"
-    },
-    {
-      name: "183-Day Tax Residency Watch",
-      free: "Locked",
-      freeStatus: "lock",
-      premium: "Full Tracking & Smart Alerts",
-      premiumStatus: "ok"
-    },
-    {
-      name: "Calendar Sync (.ics)",
-      free: "Locked",
-      freeStatus: "lock",
-      premium: "Google & Apple Calendar Integration",
-      premiumStatus: "ok"
-    },
-    {
-      name: "Cloud Backup & Cross-Device Sync",
-      free: "Local Storage Only",
-      freeStatus: "lock",
-      premium: "Firebase Cloud Sync (Multi-Device)",
-      premiumStatus: "ok"
-    },
-    {
-      name: "Export Reports & Footprint Card",
-      free: "Locked",
-      freeStatus: "lock",
-      premium: "PDF, CSV & Digital Footprint Card",
-      premiumStatus: "ok"
-    },
-    {
-      name: "Ad Experience",
-      free: "Sponsored Content",
-      freeStatus: "warn",
-      premium: "100% Ad-Free",
-      premiumStatus: "ok"
-    }
-  ];
-
   return (
     <section id="pricing" className="py-24 px-4 sm:px-6 bg-[#f2faf8] text-[#003837] relative">
-      <div className="max-w-5xl mx-auto space-y-16">
+      <div className="max-w-5xl mx-auto space-y-12">
         {/* Section Header */}
         <div className="text-center space-y-4 max-w-xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#04aa92]/15 text-[#047867] border border-[#04aa92]/25 text-xs font-bold uppercase tracking-wider">
@@ -213,73 +139,11 @@ export const Pricing: React.FC = () => {
 
         </div>
 
-        {/* Feature Comparison Table */}
-        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#04aa92]/20 shadow-md space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#04aa92]/15 pb-6">
-            <div>
-              <h3 className="text-xl sm:text-2xl font-black text-[#003837]">
-                Free vs Premium Feature Comparison
-              </h3>
-              <p className="text-sm text-[#047867] mt-1 font-medium">
-                Choose the right Viflo plan for your travel and residency tracking needs.
-              </p>
-            </div>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#04aa92]/10 text-[#047867] text-xs font-bold border border-[#04aa92]/20">
-              <ShieldCheck className="w-4 h-4 text-[#0da98b]" />
-              Cancel anytime
-            </div>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse min-w-[600px]">
-              <thead>
-                <tr className="border-b border-[#04aa92]/15 text-xs uppercase tracking-wider text-[#047867]">
-                  <th className="py-3 px-4 font-extrabold w-2/5">Feature</th>
-                  <th className="py-3 px-4 font-extrabold w-3/10 text-center bg-slate-50/80 rounded-t-xl">Free Plan</th>
-                  <th className="py-3 px-4 font-extrabold w-3/10 text-center bg-[#0da98b]/10 text-[#003837] rounded-t-xl">Premium Plan</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#04aa92]/10 text-xs sm:text-sm">
-                {comparisonFeatures.map((item, idx) => (
-                  <tr key={idx} className="hover:bg-[#f0fbf9]/50 transition-colors">
-                    <td className="py-4 px-4 font-semibold text-[#003837]">
-                      {item.name}
-                    </td>
-                    <td className="py-4 px-4 text-center bg-slate-50/50">
-                      <div className="inline-flex items-center justify-center gap-1.5 font-medium text-slate-700">
-                        {item.freeStatus === 'lock' && (
-                          <span className="inline-flex items-center gap-1 text-red-600 bg-red-50 border border-red-200 px-2.5 py-1 rounded-full text-xs font-bold">
-                            <X className="w-3.5 h-3.5" /> {item.free}
-                          </span>
-                        )}
-                        {item.freeStatus === 'warn' && (
-                          <span className="inline-flex items-center gap-1 text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-full text-xs font-bold">
-                            <AlertTriangle className="w-3.5 h-3.5" /> {item.free}
-                          </span>
-                        )}
-                        {item.freeStatus === 'ok' && (
-                          <span className="inline-flex items-center gap-1 text-[#003837] bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full text-xs font-bold">
-                            <Check className="w-3.5 h-3.5 text-[#0da98b]" /> {item.free}
-                          </span>
-                        )}
-                      </div>
-                    </td>
-                    <td className="py-4 px-4 text-center bg-[#0da98b]/5 font-bold text-[#003837]">
-                      <span className="inline-flex items-center gap-1 text-[#003837] bg-[#0da98b]/15 border border-[#0da98b]/30 px-3 py-1 rounded-full text-xs font-black shadow-2xs">
-                        <Check className="w-3.5 h-3.5 text-[#0da98b]" /> {item.premium}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
       </div>
     </section>
   );
 };
+
 
 
 
