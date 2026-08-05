@@ -3,7 +3,6 @@ import { Check, X, AlertTriangle, Sparkles, ShieldCheck, Lock } from 'lucide-rea
 
 interface ComparisonFeature {
   name: string;
-  nameTr: string;
   free: string;
   freeStatus: 'ok' | 'warn' | 'lock';
   premium: string;
@@ -16,74 +15,65 @@ export const Pricing: React.FC = () => {
   const comparisonFeatures: ComparisonFeature[] = [
     {
       name: "Active Visa Tracking",
-      nameTr: "Aktif Vize Takibi",
-      free: "2 Active Visas (2 adet)",
+      free: "2 Active Visas",
       freeStatus: "ok",
-      premium: "Unlimited (Sınırsız)",
+      premium: "Unlimited Visas",
       premiumStatus: "ok"
     },
     {
       name: "Passport Addition",
-      nameTr: "Pasaport Ekleme",
-      free: "1 Passport (1 adet)",
+      free: "1 Passport",
       freeStatus: "ok",
-      premium: "Unlimited (Dual Citizenship / Çifte Vatandaşlık)",
+      premium: "Unlimited (Dual Citizenship)",
       premiumStatus: "ok"
     },
     {
       name: "Residency Permit Tracker",
-      nameTr: "Oturum İzni Tracker",
-      free: "Locked (Kilitli)",
+      free: "Locked",
       freeStatus: "lock",
-      premium: "Unlimited with Annual Day Counter (Yıllık gün sayacı ile)",
+      premium: "Unlimited with Annual Day Counter",
       premiumStatus: "ok"
     },
     {
       name: "Schengen 90/180 & Safe Return Calculator",
-      nameTr: "Schengen 90/180 & Güvenli Dönüş",
-      free: "Basic Counter (Temel Sayaç)",
+      free: "Basic Counter",
       freeStatus: "warn",
-      premium: "Advanced 180-Day Rolling Window & Full Reset Date (Gelişmiş Kayar Pencere & Sıfırlama Tarihi)",
+      premium: "Advanced 180-Day Rolling Window & Reset Date",
       premiumStatus: "ok"
     },
     {
       name: "183-Day Tax Residency Watch",
-      nameTr: "183 Gün Vergi Yerleşimi Takibi",
-      free: "Locked (Kilitli)",
+      free: "Locked",
       freeStatus: "lock",
-      premium: "Full Tracking & Smart Alerts (Tam Takip & Uyarılar)",
+      premium: "Full Tracking & Smart Alerts",
       premiumStatus: "ok"
     },
     {
       name: "Calendar Sync (.ics)",
-      nameTr: "Takvim Senkronizasyonu (.ics)",
-      free: "Locked (Kilitli)",
+      free: "Locked",
       freeStatus: "lock",
-      premium: "Google & Apple Calendar Integration (Takvim Entegrasyonu)",
+      premium: "Google & Apple Calendar Integration",
       premiumStatus: "ok"
     },
     {
       name: "Cloud Backup & Cross-Device Sync",
-      nameTr: "Bulut Yedekleme & Eşitleme",
-      free: "Local Storage Only (Sadece Yerel)",
+      free: "Local Storage Only",
       freeStatus: "lock",
       premium: "Firebase Cloud Sync (Multi-Device)",
       premiumStatus: "ok"
     },
     {
-      name: "Export Reports & Footprint",
-      nameTr: "Dışa Aktarma (Export)",
-      free: "Locked (Kilitli)",
+      name: "Export Reports & Footprint Card",
+      free: "Locked",
       freeStatus: "lock",
-      premium: "PDF, CSV & Digital Footprint Card (PDF, CSV & Dijital Footprint Kartı)",
+      premium: "PDF, CSV & Digital Footprint Card",
       premiumStatus: "ok"
     },
     {
       name: "Ad Experience",
-      nameTr: "Reklamlar",
-      free: "Sponsored Content (Sponsorlu İçerik)",
+      free: "Sponsored Content",
       freeStatus: "warn",
-      premium: "100% Ad-Free (%100 Reklamsız)",
+      premium: "100% Ad-Free",
       premiumStatus: "ok"
     }
   ];
@@ -130,26 +120,26 @@ export const Pricing: React.FC = () => {
           {/* Free Plan */}
           <div className="bg-white p-8 rounded-3xl border border-[#04aa92]/20 flex flex-col justify-between space-y-6 shadow-sm">
             <div className="space-y-4">
-              <div className="text-lg font-bold text-[#047867]">Free Plan (Ücretsiz)</div>
+              <div className="text-lg font-bold text-[#047867]">Free Plan</div>
               <div className="text-4xl font-black text-[#003837]">$0 <span className="text-sm font-normal text-[#047867]">/ forever</span></div>
               <p className="text-[#047867] text-sm font-medium">Essential visa & trip tracking for casual travelers.</p>
               <hr className="border-[#04aa92]/15" />
 
               <ul className="space-y-3 text-sm text-[#003837] font-medium">
                 <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-[#04aa92] shrink-0" /> 1 Passport (1 Pasaport Ekleme)
+                  <Check className="w-4 h-4 text-[#04aa92] shrink-0" /> 1 Passport Tracked
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-[#04aa92] shrink-0" /> Up to 2 Active Visas (2 Aktif Vize Takibi)
+                  <Check className="w-4 h-4 text-[#04aa92] shrink-0" /> Up to 2 Active Visas
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Check className="w-4 h-4 text-[#04aa92] shrink-0" /> 199+ Country visa requirements database
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0" /> Basic Schengen 90/180 Counter (Temel Sayaç)
+                  <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0" /> Basic Schengen 90/180 Counter
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-[#04aa92] shrink-0" /> Local-Only Device Storage (Yerel Depolama)
+                  <Check className="w-4 h-4 text-[#04aa92] shrink-0" /> Local-Only Device Storage
                 </li>
                 <li className="flex items-center gap-2.5 text-slate-400">
                   <Lock className="w-4 h-4 text-slate-400 shrink-0" /> Residency Permit & Tax Residency Locked
@@ -190,7 +180,7 @@ export const Pricing: React.FC = () => {
 
               <ul className="space-y-3 text-sm text-white font-medium">
                 <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-white shrink-0" /> Unlimited Passports & Visas (Dual Citizenship / Çifte Vatandaşlık)
+                  <Check className="w-4 h-4 text-white shrink-0" /> Unlimited Passports & Visas (Dual Citizenship)
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Check className="w-4 h-4 text-white shrink-0" /> Residency Permit & 183-Day Tax Residency Watch
@@ -208,7 +198,7 @@ export const Pricing: React.FC = () => {
                   <Check className="w-4 h-4 text-white shrink-0" /> Export PDF, CSV & Digital Footprint Share Card
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-white shrink-0" /> 100% Ad-Free Experience (%100 Reklamsız)
+                  <Check className="w-4 h-4 text-white shrink-0" /> 100% Ad-Free Experience
                 </li>
               </ul>
             </div>
@@ -228,15 +218,15 @@ export const Pricing: React.FC = () => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#04aa92]/15 pb-6">
             <div>
               <h3 className="text-xl sm:text-2xl font-black text-[#003837]">
-                Free vs Premium Özellik Karşılaştırması
+                Free vs Premium Feature Comparison
               </h3>
               <p className="text-sm text-[#047867] mt-1 font-medium">
-                İhtiyacınıza en uygun Viflo planını seçin.
+                Choose the right Viflo plan for your travel and residency tracking needs.
               </p>
             </div>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#04aa92]/10 text-[#047867] text-xs font-bold border border-[#04aa92]/20">
               <ShieldCheck className="w-4 h-4 text-[#0da98b]" />
-              Her zaman iptal edilebilir
+              Cancel anytime
             </div>
           </div>
 
@@ -244,8 +234,8 @@ export const Pricing: React.FC = () => {
             <table className="w-full text-left border-collapse min-w-[600px]">
               <thead>
                 <tr className="border-b border-[#04aa92]/15 text-xs uppercase tracking-wider text-[#047867]">
-                  <th className="py-3 px-4 font-extrabold w-2/5">Özellik</th>
-                  <th className="py-3 px-4 font-extrabold w-3/10 text-center bg-slate-50/80 rounded-t-xl">Ücretsiz (Free) Plan</th>
+                  <th className="py-3 px-4 font-extrabold w-2/5">Feature</th>
+                  <th className="py-3 px-4 font-extrabold w-3/10 text-center bg-slate-50/80 rounded-t-xl">Free Plan</th>
                   <th className="py-3 px-4 font-extrabold w-3/10 text-center bg-[#0da98b]/10 text-[#003837] rounded-t-xl">Premium Plan</th>
                 </tr>
               </thead>
@@ -253,8 +243,7 @@ export const Pricing: React.FC = () => {
                 {comparisonFeatures.map((item, idx) => (
                   <tr key={idx} className="hover:bg-[#f0fbf9]/50 transition-colors">
                     <td className="py-4 px-4 font-semibold text-[#003837]">
-                      <div>{item.nameTr}</div>
-                      <div className="text-[11px] text-[#047867]/70 font-normal">{item.name}</div>
+                      {item.name}
                     </td>
                     <td className="py-4 px-4 text-center bg-slate-50/50">
                       <div className="inline-flex items-center justify-center gap-1.5 font-medium text-slate-700">
@@ -291,5 +280,6 @@ export const Pricing: React.FC = () => {
     </section>
   );
 };
+
 
 
