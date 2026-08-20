@@ -1,7 +1,8 @@
 import React from 'react';
-import { PhoneMockup } from './PhoneMockup';
 
 export const Hero: React.FC = () => {
+  const heroImageSrc = "https://raw.githubusercontent.com/yamanozgur/vifloweb/main/hero_mockup.webp";
+
   return (
     <section className="relative min-h-screen flex flex-col justify-center px-6 pt-28 pb-20 overflow-hidden bg-gradient-to-b from-[#f2faf8] via-[#e2f7f4] to-[#f2faf8]">
       <div className="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -53,9 +54,24 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Side Phone Showcase */}
-        <div className="lg:col-span-5 flex justify-center lg:justify-end">
-          <PhoneMockup />
+        {/* Right Side Phone Mockup Image */}
+        <div className="lg:col-span-5 flex justify-center lg:justify-end items-center relative">
+          <div className="relative mx-auto w-full max-w-[340px] md:max-w-[420px] flex flex-col items-center">
+            {/* Ambient teal glow behind mockup */}
+            <div className="absolute -inset-4 bg-gradient-to-tr from-[#04aa92]/30 via-[#0da98b]/20 to-transparent rounded-[48px] blur-3xl opacity-80 pointer-events-none" />
+            
+            {/* Main Phone Image */}
+            <img 
+              src={heroImageSrc} 
+              alt="Viflo App Preview" 
+              className="relative z-10 w-full h-auto object-contain drop-shadow-[0_25px_35px_rgba(0,56,55,0.25)] select-none"
+              loading="eager"
+            />
+
+            {/* Bottom Ground / Floor Realistic Oval Shadow */}
+            <div className="w-[75%] h-6 bg-[#003837]/25 rounded-[100%] blur-xl -mt-4 z-0 pointer-events-none transform scale-y-75" />
+            <div className="w-[50%] h-3 bg-[#003837]/35 rounded-[100%] blur-md -mt-4 z-0 pointer-events-none" />
+          </div>
         </div>
       </div>
     </section>
