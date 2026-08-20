@@ -4,7 +4,15 @@ import { Logo } from './Logo';
 export const Navbar: React.FC = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 bg-[#ffffff]/90 backdrop-blur-xl border-b border-[#04aa92]/15 shadow-sm transition-all duration-300">
-      <a href="#" className="flex items-center">
+      <a 
+        href="/" 
+        onClick={(e) => {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          window.history.pushState(null, '', '/');
+        }}
+        className="flex items-center"
+      >
         <Logo variant="brand" size="xl" showText={false} />
       </a>
 
