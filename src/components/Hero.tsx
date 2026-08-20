@@ -56,7 +56,7 @@ export const Hero: React.FC = () => {
 
         {/* Right Side Phone Mockup Image */}
         <div className="lg:col-span-5 flex justify-center lg:justify-end items-center relative">
-          <div className="relative mx-auto w-full max-w-[340px] md:max-w-[420px] flex flex-col items-center">
+          <div className="relative mx-auto w-full max-w-[390px] md:max-w-[480px] flex flex-col items-center">
             {/* Ambient teal glow behind mockup */}
             <div className="absolute -inset-4 bg-gradient-to-tr from-[#04aa92]/30 via-[#0da98b]/20 to-transparent rounded-[48px] blur-3xl opacity-80 pointer-events-none" />
             

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Check, AlertTriangle, Sparkles, Lock } from 'lucide-react';
+import { Check, AlertTriangle, Sparkles, Lock, Zap } from 'lucide-react';
+
+type PlanOption = 'monthly' | 'annual' | 'founder';
 
 export const Pricing: React.FC = () => {
-  const [isAnnual, setIsAnnual] = useState<boolean>(true);
+  const [selectedPlan, setSelectedPlan] = useState<PlanOption>('annual');
 
   return (
     <section id="pricing" className="py-24 px-4 sm:px-6 bg-[#f2faf8] text-[#003837] relative">
@@ -18,33 +20,13 @@ export const Pricing: React.FC = () => {
           <p className="text-[#047867] text-base font-medium">
             Essential visa & trip tracking for casual travelers. Complete peace of mind for digital nomads, dual citizens & frequent flyers.
           </p>
-
-          {/* Billing Toggle */}
-          <div className="pt-4 flex items-center justify-center gap-3">
-            <span className={`text-sm font-bold ${!isAnnual ? 'text-[#003837]' : 'text-[#047867]/60'}`}>Monthly</span>
-            <button
-              onClick={() => setIsAnnual(!isAnnual)}
-              className="w-14 h-8 bg-[#e0f4f1] rounded-full p-1 relative transition-colors focus:outline-none border border-[#04aa92]/30"
-              aria-label="Toggle annual or monthly billing"
-            >
-              <div 
-                className={`w-6 h-6 rounded-full bg-[#04aa92] transition-transform ${isAnnual ? 'translate-x-6' : 'translate-x-0'}`} 
-              />
-            </button>
-            <span className={`text-sm font-bold flex items-center gap-1.5 ${isAnnual ? 'text-[#003837]' : 'text-[#047867]/60'}`}>
-              Annual
-              <span className="text-[10px] bg-[#04aa92]/20 text-[#047867] px-2 py-0.5 rounded-full border border-[#04aa92]/30 font-bold">
-                SAVE 25% ($44.99/yr)
-              </span>
-            </span>
-          </div>
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Free Plan */}
-          <div className="bg-white p-8 rounded-3xl border border-[#04aa92]/20 flex flex-col justify-between space-y-6 shadow-sm">
+          <div className="lg:col-span-5 bg-white p-8 rounded-3xl border border-[#04aa92]/20 flex flex-col justify-between space-y-6 shadow-sm">
             <div className="space-y-4">
               <div className="text-lg font-bold text-[#047867]">Free Plan</div>
               <div className="text-4xl font-black text-[#003837]">$0 <span className="text-sm font-normal text-[#047867]">/ forever</span></div>
@@ -84,57 +66,144 @@ export const Pricing: React.FC = () => {
             </a>
           </div>
 
-          {/* Pro Plan (Featured) */}
-          <div className="bg-[#0da98b] p-8 rounded-3xl border-2 border-white/40 flex flex-col justify-between space-y-6 relative shadow-xl text-white">
+          {/* Premium Plan (Featured) */}
+          <div className="lg:col-span-7 bg-[#0da98b] p-6 sm:p-8 rounded-3xl border-2 border-white/40 flex flex-col justify-between space-y-6 relative shadow-xl text-white">
             <div className="absolute -top-3.5 right-6 bg-white text-[#003837] text-xs font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-md flex items-center gap-1">
               <Sparkles className="w-3.5 h-3.5 text-[#0da98b]" /> 7-Day Free Trial
             </div>
 
-            <div className="space-y-4">
-              <div className="text-lg font-bold text-emerald-100">
-                Premium Plan (Pro)
+            <div className="space-y-5">
+              <div className="flex items-baseline justify-between">
+                <div>
+                  <div className="text-lg font-bold text-emerald-100">
+                    Premium Plan (Pro)
+                  </div>
+                  <div className="text-xs uppercase tracking-wider text-emerald-100/80 font-bold mt-0.5">
+                    Select Your Plan (7-Day Free Trial Included)
+                  </div>
+                </div>
               </div>
-              <div className="text-4xl font-black text-white">
-                {isAnnual ? '$44.99' : '$4.99'} 
-                <span className="text-sm font-normal text-emerald-100/90"> {isAnnual ? '/ year' : '/ month'}</span>
+
+              {/* Plan Switcher Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                {/* Monthly Option */}
+                <button
+                  type="button"
+                  onClick={() => setSelectedPlan('monthly')}
+                  className={`p-3.5 rounded-2xl text-left transition-all relative border ${
+                    selectedPlan === 'monthly'
+                      ? 'bg-white text-[#003837] border-white shadow-md'
+                      : 'bg-white/10 hover:bg-white/15 text-white border-white/20'
+                  }`}
+                >
+                  <div className={`text-xs font-bold uppercase tracking-wider ${selectedPlan === 'monthly' ? 'text-[#047867]' : 'text-emerald-100'}`}>
+                    Monthly
+                  </div>
+                  <div className="text-2xl font-black mt-1">
+                    $3.99<span className="text-xs font-normal">/mo</span>
+                  </div>
+                  <div className={`text-[11px] font-medium mt-0.5 ${selectedPlan === 'monthly' ? 'text-[#047867]' : 'text-emerald-100/90'}`}>
+                    7 days free trial
+                  </div>
+                </button>
+
+                {/* Annual Option (Featured) */}
+                <button
+                  type="button"
+                  onClick={() => setSelectedPlan('annual')}
+                  className={`p-3.5 rounded-2xl text-left transition-all relative border ${
+                    selectedPlan === 'annual'
+                      ? 'bg-white text-[#003837] border-white shadow-md ring-2 ring-emerald-300'
+                      : 'bg-white/10 hover:bg-white/15 text-white border-white/20'
+                  }`}
+                >
+                  <div className="absolute -top-2.5 right-3 bg-[#04aa92] text-white text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
+                    Launch 50% OFF
+                  </div>
+                  <div className={`text-xs font-bold uppercase tracking-wider ${selectedPlan === 'annual' ? 'text-[#047867]' : 'text-emerald-100'}`}>
+                    Annual (Launch Promo)
+                  </div>
+                  <div className="flex items-baseline gap-1.5 mt-1">
+                    <span className="text-2xl font-black">$19.99</span>
+                    <span className="text-xs font-normal">/yr</span>
+                    <span className={`text-xs line-through ${selectedPlan === 'annual' ? 'text-slate-400' : 'text-emerald-200/70'}`}>
+                      $39.99
+                    </span>
+                  </div>
+                  <div className={`text-[11px] font-medium mt-0.5 ${selectedPlan === 'annual' ? 'text-[#047867]' : 'text-emerald-100/90'}`}>
+                    ~$1.66/month · 7 days free
+                  </div>
+                  <div className="inline-block mt-1 px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 text-[10px] font-bold">
+                    Offer ends Sept 30, 2026
+                  </div>
+                </button>
               </div>
-              <p className="text-xs text-white font-bold">
-                {isAnnual ? 'Includes 7-Day Free Trial · Save $14.89 yearly' : 'Includes 7-Day Free Trial · Cancel anytime'}
-              </p>
-              <p className="text-emerald-50 text-sm font-medium">Complete peace of mind for digital nomads, dual citizens & frequent flyers.</p>
+
+              {/* Founder Pass Lifetime Option */}
+              <button
+                type="button"
+                onClick={() => setSelectedPlan('founder')}
+                className={`w-full p-3.5 rounded-2xl text-left transition-all relative border border-dashed ${
+                  selectedPlan === 'founder'
+                    ? 'bg-amber-50 text-amber-950 border-amber-400 shadow-md ring-2 ring-amber-300'
+                    : 'bg-white/10 hover:bg-white/15 text-white border-amber-300/60'
+                }`}
+              >
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div className="inline-flex items-center gap-1 bg-[#f59e0b] text-white text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-xs">
+                    <Zap className="w-3 h-3 fill-current" /> Founder Pass (First 200 Users Only)
+                  </div>
+                  <div className="text-lg font-black">
+                    $49.99 <span className="text-xs font-semibold opacity-80">· One-Time Payment</span>
+                  </div>
+                </div>
+                <div className={`text-xs font-medium mt-1.5 ${selectedPlan === 'founder' ? 'text-amber-900' : 'text-emerald-100'}`}>
+                  Pay once, own forever. No recurring fees or subscriptions.
+                </div>
+              </button>
+
               <hr className="border-white/20" />
 
-              <ul className="space-y-3 text-sm text-white font-medium">
-                <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-white shrink-0" /> Unlimited Passports & Visas (Dual Citizenship)
+              {/* Features Included */}
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm text-white font-medium">
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-white shrink-0" /> Unlimited Passports & Visas
                 </li>
-                <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-white shrink-0" /> Residency Permit & 183-Day Tax Residency Watch
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-white shrink-0" /> Residency Permit Tracker
                 </li>
-                <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-white shrink-0" /> Advanced Schengen Rolling Window & Safe Return Date
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-white shrink-0" /> 183-Day Tax Residency Watch
                 </li>
-                <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-white shrink-0" /> Auto-Sync with Google & Apple Calendar (.ics)
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-white shrink-0" /> Advanced Rolling Window
                 </li>
-                <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-white shrink-0" /> Multi-Device Encrypted Firebase Cloud Sync
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-white shrink-0" /> Calendar Sync (.ics)
                 </li>
-                <li className="flex items-center gap-2.5">
-                  <Check className="w-4 h-4 text-white shrink-0" /> Export PDF, CSV & Digital Footprint Share Card
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-white shrink-0" /> Multi-Device Cloud Sync
                 </li>
-                <li className="flex items-center gap-2.5">
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-white shrink-0" /> Export PDF, CSV & Footprint
+                </li>
+                <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-white shrink-0" /> 100% Ad-Free Experience
                 </li>
               </ul>
             </div>
 
-            <a 
-              href="#download" 
-              className="w-full py-3.5 rounded-2xl bg-white hover:bg-emerald-50 text-[#003837] font-extrabold text-center shadow-lg transition-all transform hover:-translate-y-0.5"
-            >
-              Start 7-Day Free Trial
-            </a>
+            <div className="space-y-2 pt-2">
+              <a 
+                href="#download" 
+                className="w-full py-3.5 rounded-2xl bg-white hover:bg-emerald-50 text-[#003837] font-extrabold text-center block shadow-lg transition-all transform hover:-translate-y-0.5"
+              >
+                {selectedPlan === 'founder' ? 'Claim Founder Pass ($49.99)' : 'Start 7-Day Free Trial'}
+              </a>
+              <p className="text-center text-xs font-semibold text-emerald-100">
+                {selectedPlan === 'founder' ? 'Lifetime Access · First 200 Users Only' : '7 Days $0.00 · Cancel anytime in 1-click'}
+              </p>
+            </div>
           </div>
 
         </div>
@@ -143,6 +212,7 @@ export const Pricing: React.FC = () => {
     </section>
   );
 };
+
 
 
 
