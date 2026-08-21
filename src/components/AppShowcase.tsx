@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Smartphone } from 'lucide-react';
 import store1 from '../assets/showcase/store1.webp';
 import store2 from '../assets/showcase/store2.webp';
@@ -10,17 +10,48 @@ import store6 from '../assets/showcase/store6.webp';
 interface ShowcaseItem {
   id: number;
   image: string;
+  githubRaw: string;
   alt: string;
 }
 
 export const AppShowcase: React.FC = () => {
   const screens: ShowcaseItem[] = [
-    { id: 1, image: store1, alt: 'Viflo Screen 1' },
-    { id: 2, image: store2, alt: 'Viflo Screen 2' },
-    { id: 3, image: store3, alt: 'Viflo Screen 3' },
-    { id: 4, image: store4, alt: 'Viflo Screen 4' },
-    { id: 5, image: store5, alt: 'Viflo Screen 5' },
-    { id: 6, image: store6, alt: 'Viflo Screen 6' },
+    { 
+      id: 1, 
+      image: store1, 
+      githubRaw: 'https://raw.githubusercontent.com/yamanozgur/vifloweb/main/showcase/store1.webp', 
+      alt: 'Viflo Passport & Visa Tracking' 
+    },
+    { 
+      id: 2, 
+      image: store2, 
+      githubRaw: 'https://raw.githubusercontent.com/yamanozgur/vifloweb/main/showcase/store2.webp', 
+      alt: 'Viflo 90/180 Schengen Calculator' 
+    },
+    { 
+      id: 3, 
+      image: store3, 
+      githubRaw: 'https://raw.githubusercontent.com/yamanozgur/vifloweb/main/showcase/store3.webp', 
+      alt: 'Viflo Multi-Passport Management' 
+    },
+    { 
+      id: 4, 
+      image: store4, 
+      githubRaw: 'https://raw.githubusercontent.com/yamanozgur/vifloweb/main/showcase/store4.webp', 
+      alt: 'Viflo Trip Timeline & History' 
+    },
+    { 
+      id: 5, 
+      image: store5, 
+      githubRaw: 'https://raw.githubusercontent.com/yamanozgur/vifloweb/main/showcase/store5.webp', 
+      alt: 'Viflo Border Alerts & Warnings' 
+    },
+    { 
+      id: 6, 
+      image: store6, 
+      githubRaw: 'https://raw.githubusercontent.com/yamanozgur/vifloweb/main/showcase/store6.webp', 
+      alt: 'Viflo Offline & Privacy Security' 
+    },
   ];
 
   return (
@@ -46,24 +77,39 @@ export const AppShowcase: React.FC = () => {
         {/* 6 Screens compact side-by-side layout */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
           {screens.map((screen) => (
-            <div
-              key={screen.id}
-              className="bg-white rounded-2xl p-1.5 sm:p-2 border border-[#04aa92]/20 hover:border-[#04aa92]/50 shadow-xs hover:shadow-md transition-all duration-200 group"
-            >
-              {/* Compact Screenshot container */}
-              <div className="relative rounded-xl overflow-hidden bg-slate-900 border border-[#04aa92]/10 aspect-[9/18]">
-                <img
-                  src={screen.image}
-                  alt={screen.alt}
-                  className="w-full h-full object-cover select-none group-hover:scale-102 transition-transform duration-300 pointer-events-none"
-                  loading="lazy"
-                />
-              </div>
-            </div>
+            <ShowcaseCard key={screen.id} screen={screen} />
           ))}
         </div>
 
       </div>
     </section>
+  );
+};
+
+const ShowcaseCard: React.FC<{ screen: ShowcaseItem }> = ({ screen }) => {
+  const [imgSrc, setImgSrc] = useState<string>(screen.image);
+  const [hasFallbackTried, setHasFallbackTried] = useState(false);
+
+  const handleError = () => {
+    if (!hasFallbackTried) {
+      setHasFallbackTried(true);
+      // Try GitHub Raw CDN URL
+      setImgSrc(screen.githubRaw);
+    }
+  };
+
+  return (
+    <div className="bg-white rounded-2xl p-1.5 sm:p-2 border border-[#04aa92]/20 hover:border-[#04aa92]/50 shadow-xs hover:shadow-md transition-all duration-200 group">
+      <div className="relative rounded-xl overflow-hidden bg-slate-100 border border-[#04aa92]/10 aspect-[9/19.5]">
+        <img
+          src={imgSrc}
+          alt={screen.alt}
+          onError={handleError}
+          className="w-full h-full object-cover select-none group-hover:scale-[1.02] transition-transform duration-300 pointer-events-none"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+    </div>
   );
 };
