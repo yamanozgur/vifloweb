@@ -58,12 +58,15 @@ export const Pricing: React.FC = () => {
               </ul>
             </div>
 
-            <a 
-              href="#download" 
-              className="w-full py-3.5 rounded-2xl bg-[#f0fbf9] hover:bg-[#e0f4f1] text-[#003837] font-bold text-center border border-[#04aa92]/25 transition-colors"
+            <button 
+              type="button"
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="w-full py-3.5 rounded-2xl bg-[#f0fbf9] hover:bg-[#e0f4f1] text-[#003837] font-bold text-center border border-[#04aa92]/25 transition-colors cursor-pointer"
             >
               Get Started Free
-            </a>
+            </button>
           </div>
 
           {/* Premium Plan (Featured) */}

@@ -5,9 +5,10 @@ import { Footer } from './Footer';
 
 interface LegalPageProps {
   onBack: () => void;
+  onOpenSupport?: () => void;
 }
 
-export const LegalPage: React.FC<LegalPageProps> = ({ onBack }) => {
+export const LegalPage: React.FC<LegalPageProps> = ({ onBack, onOpenSupport }) => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
@@ -147,7 +148,7 @@ export const LegalPage: React.FC<LegalPageProps> = ({ onBack }) => {
         </div>
       </main>
 
-      <Footer onOpenLegal={() => {}} />
+      <Footer onOpenLegal={() => window.scrollTo({ top: 0, behavior: 'smooth' })} onOpenSupport={onOpenSupport} />
     </div>
   );
 };

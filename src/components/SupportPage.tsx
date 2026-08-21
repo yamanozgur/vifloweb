@@ -6,9 +6,10 @@ import { Footer } from './Footer';
 interface SupportPageProps {
   onBack: () => void;
   onOpenFaq?: () => void;
+  onOpenLegal?: () => void;
 }
 
-export const SupportPage: React.FC<SupportPageProps> = ({ onBack, onOpenFaq }) => {
+export const SupportPage: React.FC<SupportPageProps> = ({ onBack, onOpenFaq, onOpenLegal }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -250,7 +251,7 @@ export const SupportPage: React.FC<SupportPageProps> = ({ onBack, onOpenFaq }) =
         </div>
       </main>
 
-      <Footer onOpenLegal={() => { window.location.hash = 'legal'; }} />
+      <Footer onOpenLegal={onOpenLegal} onOpenSupport={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
     </div>
   );
 };

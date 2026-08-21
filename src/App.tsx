@@ -12,54 +12,43 @@ import { SupportPage } from './components/SupportPage';
 import { Footer } from './components/Footer';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'legal' | 'support'>(() => {
-    if (window.location.hash === '#legal') return 'legal';
-    if (window.location.hash === '#support') return 'support';
-    return 'home';
-  });
+  const [currentPage, setCurrentPage] = useState<'home' | 'legal' | 'support'>('home');
 
   useEffect(() => {
-    const handleHashChange = () => {
-      if (window.location.hash === '#legal') {
-        setCurrentPage('legal');
-      } else if (window.location.hash === '#support') {
-        setCurrentPage('support');
-      } else if (window.location.hash === '' || window.location.hash === '#') {
-        setCurrentPage('home');
-      }
-    };
-
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    // If there is any hash in the URL on initial mount, clean it up seamlessly
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
   }, []);
 
   const openLegal = () => {
-    window.location.hash = 'legal';
     setCurrentPage('legal');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const openSupport = () => {
-    window.location.hash = 'support';
     setCurrentPage('support');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const openHome = () => {
-    window.location.hash = '';
     setCurrentPage('home');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const openFaq = () => {
-    window.location.hash = 'faq';
     setCurrentPage('home');
+    setTimeout(() => {
+      document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
   };
 
   if (currentPage === 'legal') {
-    return <LegalPage onBack={openHome} />;
+    return <LegalPage onBack={openHome} onOpenSupport={openSupport} />;
   }
 
   if (currentPage === 'support') {
-    return <SupportPage onBack={openHome} onOpenFaq={openFaq} />;
+    return <SupportPage onBack={openHome} onOpenFaq={openFaq} onOpenLegal={openLegal} />;
   }
 
   return (
@@ -76,3 +65,4 @@ export default function App() {
     </div>
   );
 }
+
