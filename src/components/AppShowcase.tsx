@@ -1,5 +1,11 @@
 import React from 'react';
 import { Smartphone } from 'lucide-react';
+import store1 from '../assets/showcase/store1.webp';
+import store2 from '../assets/showcase/store2.webp';
+import store3 from '../assets/showcase/store3.webp';
+import store4 from '../assets/showcase/store4.webp';
+import store5 from '../assets/showcase/store5.webp';
+import store6 from '../assets/showcase/store6.webp';
 
 interface ShowcaseItem {
   id: number;
@@ -9,12 +15,12 @@ interface ShowcaseItem {
 
 export const AppShowcase: React.FC = () => {
   const screens: ShowcaseItem[] = [
-    { id: 1, image: '/showcase/store1.webp', alt: 'Viflo Screen 1' },
-    { id: 2, image: '/showcase/store2.webp', alt: 'Viflo Screen 2' },
-    { id: 3, image: '/showcase/store3.webp', alt: 'Viflo Screen 3' },
-    { id: 4, image: '/showcase/store4.webp', alt: 'Viflo Screen 4' },
-    { id: 5, image: '/showcase/store5.webp', alt: 'Viflo Screen 5' },
-    { id: 6, image: '/showcase/store6.webp', alt: 'Viflo Screen 6' },
+    { id: 1, image: store1, alt: 'Viflo Screen 1' },
+    { id: 2, image: store2, alt: 'Viflo Screen 2' },
+    { id: 3, image: store3, alt: 'Viflo Screen 3' },
+    { id: 4, image: store4, alt: 'Viflo Screen 4' },
+    { id: 5, image: store5, alt: 'Viflo Screen 5' },
+    { id: 6, image: store6, alt: 'Viflo Screen 6' },
   ];
 
   return (
