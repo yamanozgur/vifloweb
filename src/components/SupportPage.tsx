@@ -30,10 +30,20 @@ export const SupportPage: React.FC<SupportPageProps> = ({ onBack, onOpenFaq, onO
     if (!formData.name || !formData.email || !formData.message) return;
 
     setIsSubmitting(true);
+
+    // Fallback or trigger mail client if desired, while showing success state
+    const mailtoSubject = encodeURIComponent(`[Viflo Support] ${formData.subject} - ${formData.name}`);
+    const mailtoBody = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nTopic: ${formData.subject}\nPlatform: ${formData.platform}\n\nMessage:\n${formData.message}`
+    );
+
+    // Open mail client in background
+    window.location.href = `mailto:support@viflo.app?subject=${mailtoSubject}&body=${mailtoBody}`;
+
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 800);
+    }, 600);
   };
 
   return (
