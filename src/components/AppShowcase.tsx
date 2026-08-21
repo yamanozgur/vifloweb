@@ -1,58 +1,20 @@
 import React from 'react';
-import { Smartphone, Sparkles } from 'lucide-react';
+import { Smartphone } from 'lucide-react';
 
 interface ShowcaseItem {
   id: number;
   image: string;
-  tag: string;
-  title: string;
-  desc: string;
+  alt: string;
 }
 
 export const AppShowcase: React.FC = () => {
   const screens: ShowcaseItem[] = [
-    {
-      id: 1,
-      image: '/showcase/store1.webp',
-      tag: 'Dashboard',
-      title: '90/180 Rolling Tracker',
-      desc: 'Real-time Schengen rolling window countdown.'
-    },
-    {
-      id: 2,
-      image: '/showcase/store2.webp',
-      tag: 'Travel Map',
-      title: 'Interactive Travel Map',
-      desc: 'Visualize visited countries & visa zones.'
-    },
-    {
-      id: 3,
-      image: '/showcase/store3.webp',
-      tag: 'Visa Vault',
-      title: 'Visa & Passport Wallet',
-      desc: 'Organize multiple visas and stay allowances.'
-    },
-    {
-      id: 4,
-      image: '/showcase/store4.webp',
-      tag: 'Tax Status',
-      title: '183-Day Presence Tracker',
-      desc: 'Monitor physical presence per country.'
-    },
-    {
-      id: 5,
-      image: '/showcase/store5.webp',
-      tag: 'Safe Re-Entry',
-      title: 'Trip Simulator',
-      desc: 'Calculate safe return dates before booking.'
-    },
-    {
-      id: 6,
-      image: '/showcase/store6.webp',
-      tag: 'Fast Logging',
-      title: '2-Tap Entry & Sync',
-      desc: 'Quick entry logging with calendar integration.'
-    }
+    { id: 1, image: '/showcase/store1.webp', alt: 'Viflo Screen 1' },
+    { id: 2, image: '/showcase/store2.webp', alt: 'Viflo Screen 2' },
+    { id: 3, image: '/showcase/store3.webp', alt: 'Viflo Screen 3' },
+    { id: 4, image: '/showcase/store4.webp', alt: 'Viflo Screen 4' },
+    { id: 5, image: '/showcase/store5.webp', alt: 'Viflo Screen 5' },
+    { id: 6, image: '/showcase/store6.webp', alt: 'Viflo Screen 6' },
   ];
 
   return (
@@ -80,29 +42,16 @@ export const AppShowcase: React.FC = () => {
           {screens.map((screen) => (
             <div
               key={screen.id}
-              className="bg-white rounded-2xl p-2 sm:p-2.5 border border-[#04aa92]/20 hover:border-[#04aa92]/50 shadow-xs hover:shadow-md transition-all duration-200 flex flex-col space-y-2.5 group"
+              className="bg-white rounded-2xl p-1.5 sm:p-2 border border-[#04aa92]/20 hover:border-[#04aa92]/50 shadow-xs hover:shadow-md transition-all duration-200 group"
             >
               {/* Compact Screenshot container */}
               <div className="relative rounded-xl overflow-hidden bg-slate-900 border border-[#04aa92]/10 aspect-[9/18]">
                 <img
                   src={screen.image}
-                  alt={screen.title}
+                  alt={screen.alt}
                   className="w-full h-full object-cover select-none group-hover:scale-102 transition-transform duration-300 pointer-events-none"
                   loading="lazy"
                 />
-              </div>
-
-              {/* Minimal caption */}
-              <div className="px-1 space-y-0.5">
-                <span className="text-[10px] font-extrabold text-[#04aa92] uppercase tracking-wider block">
-                  {screen.tag}
-                </span>
-                <h3 className="text-xs font-black text-[#003837] truncate leading-tight">
-                  {screen.title}
-                </h3>
-                <p className="text-[11px] text-[#047867] font-medium leading-snug line-clamp-2">
-                  {screen.desc}
-                </p>
               </div>
             </div>
           ))}
