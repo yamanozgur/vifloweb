@@ -3,6 +3,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { StatsBar } from './components/StatsBar';
 import { BentoFeatures } from './components/BentoFeatures';
+import { AppShowcase } from './components/AppShowcase';
 import { HowItWorks } from './components/HowItWorks';
 import { Pricing } from './components/Pricing';
 import { FaqSection } from './components/FaqSection';
@@ -67,6 +68,7 @@ export default function App() {
       <Hero />
       <StatsBar />
       <BentoFeatures />
+      <AppShowcase />
       <HowItWorks />
       <Pricing />
       <FaqSection />

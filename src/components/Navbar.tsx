@@ -18,6 +18,7 @@ export const Navbar: React.FC = () => {
 
       <ul className="hidden md:flex items-center gap-8 list-none">
         <li><a href="#features" className="text-[#047867] hover:text-[#04aa92] text-sm font-medium transition-colors">Features</a></li>
+        <li><a href="#showcase" className="text-[#047867] hover:text-[#04aa92] text-sm font-medium transition-colors">App Showcase</a></li>
         <li><a href="#how-it-works" className="text-[#047867] hover:text-[#04aa92] text-sm font-medium transition-colors">How It Works</a></li>
         <li><a href="#pricing" className="text-[#047867] hover:text-[#04aa92] text-sm font-medium transition-colors">Pricing</a></li>
         <li><a href="#faq" className="text-[#047867] hover:text-[#04aa92] text-sm font-medium transition-colors">FAQ</a></li>
