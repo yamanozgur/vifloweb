@@ -21,22 +21,20 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onOpenSupport }) =>
 
         <ul className="flex flex-wrap items-center gap-6 text-xs text-emerald-50 font-semibold list-none">
           <li>
-            <button 
-              type="button"
-              onClick={onOpenLegal}
-              className="hover:text-white transition-colors underline-offset-4 hover:underline cursor-pointer"
+            <a 
+              href="/privacy"
+              className="hover:text-white transition-colors underline-offset-4 hover:underline"
             >
               Privacy Policy
-            </button>
+            </a>
           </li>
           <li>
-            <button 
-              type="button"
-              onClick={onOpenLegal}
-              className="hover:text-white transition-colors underline-offset-4 hover:underline cursor-pointer"
+            <a 
+              href="/privacy"
+              className="hover:text-white transition-colors underline-offset-4 hover:underline"
             >
               Terms of Service
-            </button>
+            </a>
           </li>
           <li>
             <button 
