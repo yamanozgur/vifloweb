@@ -87,83 +87,88 @@ export const Pricing: React.FC = () => {
                 </div>
               </div>
 
-              {/* Plan Switcher Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                {/* Monthly Option */}
+              {/* Plan Switcher Container (matching exact pricing design) */}
+              <div className="bg-[#f0faf7] p-4 sm:p-5 rounded-2xl border border-[#04aa92]/30 text-[#003837] space-y-3.5 shadow-sm">
+                <div className="text-center text-xs font-black tracking-wider text-[#0da98b] uppercase">
+                  Select Your Plan (7-Day Free Trial Included)
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                  {/* Monthly Option */}
+                  <button
+                    type="button"
+                    onClick={() => setSelectedPlan('monthly')}
+                    className={`p-3.5 rounded-2xl text-left transition-all relative border cursor-pointer ${
+                      selectedPlan === 'monthly'
+                        ? 'bg-white text-[#003837] border-2 border-[#0da98b] shadow-sm'
+                        : 'bg-[#f0f4f8] hover:bg-white/80 text-[#003837] border-transparent'
+                    }`}
+                  >
+                    <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                      Monthly
+                    </div>
+                    <div className="text-2xl font-black text-[#003837] mt-0.5">
+                      $4.99<span className="text-xs font-normal text-slate-500">/mo</span>
+                    </div>
+                    <div className="text-[11px] font-medium text-slate-500 mt-0.5">
+                      7 days free trial
+                    </div>
+                  </button>
+
+                  {/* Annual Option (Popular) */}
+                  <button
+                    type="button"
+                    onClick={() => setSelectedPlan('annual')}
+                    className={`p-3.5 rounded-2xl text-left transition-all relative border cursor-pointer ${
+                      selectedPlan === 'annual'
+                        ? 'bg-white text-[#003837] border-2 border-[#0da98b] shadow-sm'
+                        : 'bg-[#f0f4f8] hover:bg-white/80 text-[#003837] border-transparent'
+                    }`}
+                  >
+                    <div className="absolute -top-2.5 right-3 bg-[#0da98b] text-white text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
+                      Popular
+                    </div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-[#0da98b]">
+                      Annual
+                    </div>
+                    <div className="text-2xl font-black text-[#0da98b] mt-0.5">
+                      $49.99<span className="text-xs font-normal">/yr</span>
+                    </div>
+                    <div className="text-[11px] font-bold text-[#0da98b] mt-0.5">
+                      ~$4.16/month · 7 days free
+                    </div>
+                  </button>
+                </div>
+
+                {/* Founder Pass Lifetime Option */}
                 <button
                   type="button"
-                  onClick={() => setSelectedPlan('monthly')}
-                  className={`p-3.5 rounded-2xl text-left transition-all relative border ${
-                    selectedPlan === 'monthly'
-                      ? 'bg-white text-[#003837] border-white shadow-md'
-                      : 'bg-white/10 hover:bg-white/15 text-white border-white/20'
+                  onClick={() => setSelectedPlan('founder')}
+                  className={`w-full p-4 rounded-2xl text-left transition-all relative border-2 border-dashed cursor-pointer ${
+                    selectedPlan === 'founder'
+                      ? 'bg-[#fffdf2] border-[#f59e0b] shadow-sm ring-2 ring-amber-300'
+                      : 'bg-[#fffdf5]/80 hover:bg-[#fffdf5] border-amber-400/80'
                   }`}
                 >
-                  <div className={`text-xs font-bold uppercase tracking-wider ${selectedPlan === 'monthly' ? 'text-[#047867]' : 'text-emerald-100'}`}>
-                    Monthly
+                  <div className="absolute -top-2.5 right-4 bg-[#ea580c] text-white text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-xs">
+                    Launch Promo
                   </div>
-                  <div className="text-2xl font-black mt-1">
-                    $3.99<span className="text-xs font-normal">/mo</span>
+                  <div className="flex items-center gap-1.5 text-xs font-black text-amber-700 tracking-wide uppercase">
+                    <span>⚡</span> Founder Pass (First 200 Users Only)
                   </div>
-                  <div className={`text-[11px] font-medium mt-0.5 ${selectedPlan === 'monthly' ? 'text-[#047867]' : 'text-emerald-100/90'}`}>
-                    7 days free trial
+                  <div className="text-base sm:text-lg font-black text-[#003837] mt-1">
+                    $79.99 <span className="text-xs font-semibold text-slate-600">· One-Time Lifetime Payment</span>
+                  </div>
+                  <div className="text-xs text-slate-500 font-medium mt-1">
+                    Pay once, own forever. All future updates & cloud sync included.
                   </div>
                 </button>
 
-                {/* Annual Option (Featured) */}
-                <button
-                  type="button"
-                  onClick={() => setSelectedPlan('annual')}
-                  className={`p-3.5 rounded-2xl text-left transition-all relative border ${
-                    selectedPlan === 'annual'
-                      ? 'bg-white text-[#003837] border-white shadow-md ring-2 ring-emerald-300'
-                      : 'bg-white/10 hover:bg-white/15 text-white border-white/20'
-                  }`}
-                >
-                  <div className="absolute -top-2.5 right-3 bg-[#04aa92] text-white text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
-                    Launch 50% OFF
-                  </div>
-                  <div className={`text-xs font-bold uppercase tracking-wider ${selectedPlan === 'annual' ? 'text-[#047867]' : 'text-emerald-100'}`}>
-                    Annual (Launch Promo)
-                  </div>
-                  <div className="flex items-baseline gap-1.5 mt-1">
-                    <span className="text-2xl font-black">$19.99</span>
-                    <span className="text-xs font-normal">/yr</span>
-                    <span className={`text-xs line-through ${selectedPlan === 'annual' ? 'text-slate-400' : 'text-emerald-200/70'}`}>
-                      $39.99
-                    </span>
-                  </div>
-                  <div className={`text-[11px] font-medium mt-0.5 ${selectedPlan === 'annual' ? 'text-[#047867]' : 'text-emerald-100/90'}`}>
-                    ~$1.66/month · 7 days free
-                  </div>
-                  <div className="inline-block mt-1 px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 text-[10px] font-bold">
-                    Offer ends Sept 30, 2026
-                  </div>
-                </button>
+                {/* Guarantee Subtext */}
+                <div className="text-center text-xs font-bold text-[#0da98b] pt-1">
+                  7 Days $0.00 · Cancel anytime in 1-click
+                </div>
               </div>
-
-              {/* Founder Pass Lifetime Option */}
-              <button
-                type="button"
-                onClick={() => setSelectedPlan('founder')}
-                className={`w-full p-3.5 rounded-2xl text-left transition-all relative border border-dashed ${
-                  selectedPlan === 'founder'
-                    ? 'bg-amber-50 text-amber-950 border-amber-400 shadow-md ring-2 ring-amber-300'
-                    : 'bg-white/10 hover:bg-white/15 text-white border-amber-300/60'
-                }`}
-              >
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <div className="inline-flex items-center gap-1 bg-[#f59e0b] text-white text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-xs">
-                    <Zap className="w-3 h-3 fill-current" /> Founder Pass (First 200 Users Only)
-                  </div>
-                  <div className="text-lg font-black">
-                    $49.99 <span className="text-xs font-semibold opacity-80">· One-Time Payment</span>
-                  </div>
-                </div>
-                <div className={`text-xs font-medium mt-1.5 ${selectedPlan === 'founder' ? 'text-amber-900' : 'text-emerald-100'}`}>
-                  Pay once, own forever. No recurring fees or subscriptions.
-                </div>
-              </button>
 
               <hr className="border-white/20" />
 
@@ -201,7 +206,7 @@ export const Pricing: React.FC = () => {
                 href="#download" 
                 className="w-full py-3.5 rounded-2xl bg-white hover:bg-emerald-50 text-[#003837] font-extrabold text-center block shadow-lg transition-all transform hover:-translate-y-0.5"
               >
-                {selectedPlan === 'founder' ? 'Claim Founder Pass ($49.99)' : 'Start 7-Day Free Trial'}
+                {selectedPlan === 'founder' ? 'Claim Founder Pass ($79.99)' : 'Start 7-Day Free Trial'}
               </a>
               <p className="text-center text-xs font-semibold text-emerald-100">
                 {selectedPlan === 'founder' ? 'Lifetime Access · First 200 Users Only' : '7 Days $0.00 · Cancel anytime in 1-click'}
