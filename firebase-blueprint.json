@@ -1,0 +1,102 @@
+{
+  "entities": {
+    "users": {
+      "title": "users",
+      "description": "User profiles and encrypted synced travel state",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "name": { "type": "string" },
+        "isPremium": { "type": "boolean" },
+        "subscriptionPlan": { "type": "string" },
+        "isFounder": { "type": "boolean" },
+        "expiresAt": { "type": "string" },
+        "updatedAt": { "type": "string" },
+        "appState": { "type": "object" },
+        "theme": { "type": "string" }
+      },
+      "required": ["email"]
+    },
+    "accounts": {
+      "title": "accounts",
+      "description": "Email-indexed cloud accounts and state backups",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "name": { "type": "string" },
+        "isPremium": { "type": "boolean" },
+        "subscriptionPlan": { "type": "string" },
+        "isFounder": { "type": "boolean" },
+        "expiresAt": { "type": "string" },
+        "updatedAt": { "type": "string" },
+        "appState": { "type": "object" }
+      },
+      "required": ["email"]
+    },
+    "contact_messages": {
+      "title": "contact_messages",
+      "description": "User contact inquiries and feedback submissions",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "subject": { "type": "string" },
+        "message": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "status": { "type": "string" },
+        "userAgent": { "type": "string" }
+      },
+      "required": ["email", "message"]
+    },
+    "announcements": {
+      "title": "announcements",
+      "description": "System broadcast messages and travel advisories",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "message": { "type": "string" },
+        "type": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "author": { "type": "string" }
+      },
+      "required": ["title", "message"]
+    },
+    "promos": {
+      "title": "promos",
+      "description": "Promotional codes for membership unlocking",
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "discountPercent": { "type": "number" },
+        "maxUses": { "type": "number" },
+        "usesCount": { "type": "number" },
+        "active": { "type": "boolean" },
+        "expiresAt": { "type": "string" }
+      },
+      "required": ["code", "active"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "users",
+      "description": "User profile documents and state"
+    },
+    "/accounts/{accountId}": {
+      "schema": "accounts",
+      "description": "Email-based account backup records"
+    },
+    "/contact_messages/{messageId}": {
+      "schema": "contact_messages",
+      "description": "Inbound user feedback and support tickets"
+    },
+    "/announcements/{announcementId}": {
+      "schema": "announcements",
+      "description": "Global announcements and updates"
+    },
+    "/promos/{promoId}": {
+      "schema": "promos",
+      "description": "Redeemable promo codes"
+    }
+  }
+}
