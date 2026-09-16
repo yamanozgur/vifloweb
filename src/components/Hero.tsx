@@ -42,11 +42,10 @@ export const Hero: React.FC = () => {
               </div>
             </button>
 
-            <button 
-              type="button"
-              onClick={() => {
-                document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+            <a 
+              href="https://play.google.com/store/apps/details?id=app.vercel.visaflow_mu.twa"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-[#0da98b] text-white hover:bg-[#0a8c73] shadow-lg shadow-[#0da98b]/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group"
             >
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" className="text-white">
@@ -56,7 +55,7 @@ export const Hero: React.FC = () => {
                 <div className="text-[10px] uppercase font-semibold text-emerald-100/90 leading-tight">Get it on</div>
                 <div className="text-base font-bold text-white leading-tight">Google Play</div>
               </div>
-            </button>
+            </a>
           </div>
         </div>
 

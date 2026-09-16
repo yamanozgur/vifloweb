@@ -58,15 +58,14 @@ export const Pricing: React.FC = () => {
               </ul>
             </div>
 
-            <button 
-              type="button"
-              onClick={() => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              className="w-full py-3.5 rounded-2xl bg-[#f0fbf9] hover:bg-[#e0f4f1] text-[#003837] font-bold text-center border border-[#04aa92]/25 transition-colors cursor-pointer"
+            <a 
+              href="https://play.google.com/store/apps/details?id=app.vercel.visaflow_mu.twa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-3.5 rounded-2xl bg-[#f0fbf9] hover:bg-[#e0f4f1] text-[#003837] font-bold text-center block border border-[#04aa92]/25 transition-colors cursor-pointer"
             >
               Get Started Free
-            </button>
+            </a>
           </div>
 
           {/* Premium Plan (Featured) */}
@@ -203,8 +202,10 @@ export const Pricing: React.FC = () => {
 
             <div className="space-y-2 pt-2">
               <a 
-                href="#download" 
-                className="w-full py-3.5 rounded-2xl bg-white hover:bg-emerald-50 text-[#003837] font-extrabold text-center block shadow-lg transition-all transform hover:-translate-y-0.5"
+                href="https://play.google.com/store/apps/details?id=app.vercel.visaflow_mu.twa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3.5 rounded-2xl bg-white hover:bg-emerald-50 text-[#003837] font-extrabold text-center block shadow-lg transition-all transform hover:-translate-y-0.5 cursor-pointer"
               >
                 {selectedPlan === 'founder' ? 'Claim Founder Pass ($79.99)' : 'Start 7-Day Free Trial'}
               </a>
