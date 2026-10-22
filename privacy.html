@@ -62,7 +62,7 @@
           <ul class="list-disc pl-5 space-y-1 text-slate-600">
             <li><strong>Local travel records:</strong> Country entry/exit dates, visa and residency details, passport information and your profile are stored locally on your device by default.</li>
             <li><strong>Account (optional):</strong> If you create an account or sign in with email and password, Google, Apple or Facebook, we process your email address, display name and a unique account identifier through Google Firebase Authentication. You can use the app as a guest without an account.</li>
-            <li><strong>Cloud sync (optional):</strong> If you are signed in, your records may be backed up to Google Firebase (Cloud Firestore) so you can use them on several devices. Data is transmitted over encrypted TLS connections and stored by Google with encryption at rest.</li>
+            <li><strong>Cloud sync (optional):</strong> If you are signed in, your records, including the profile photo you may choose to upload, may be backed up to Google Firebase (Cloud Firestore) so you can use them on several devices. Data is transmitted over encrypted TLS connections and stored by Google with encryption at rest.</li>
             <li><strong>Support messages:</strong> If you contact us through the in-app form, we receive the name, email address and message you submit.</li>
             <li><strong>Purchase information:</strong> When you buy Premium, we receive your subscription or purchase status (see Section 5). We never receive your payment card details.</li>
             <li><strong>Advertising data:</strong> In the free version, Google AdMob collects the data described in Section 4.</li>
@@ -73,7 +73,7 @@
         <section class="space-y-2">
           <h2 class="text-xl font-bold text-[#003837]">2. Location</h2>
           <p>
-            Location is optional. If you choose to detect your current country, the app may use your device's location permission or your IP address to find the country you are in. To do this, approximate coordinates or your IP address may be sent to third-party geocoding and IP-lookup services (for example BigDataCloud, OpenStreetMap Nominatim, ipwho.is, freeipapi.com and ipapi.co). We do not track your location in the background and we do not store location histories on our servers.
+            Detecting your current country is optional. In the mobile apps, Viflo does not request access to your device's GPS location; the country is estimated from your IP address, which is sent to third-party IP-lookup services (for example ipwho.is, freeipapi.com and ipapi.co). On the web version, your browser may ask for permission to use your location, in which case approximate coordinates may be sent to third-party geocoding services (for example BigDataCloud and OpenStreetMap Nominatim). We do not track your location in the background and we do not store location histories on our servers.
           </p>
         </section>
 
@@ -83,8 +83,8 @@
             The app asks for permissions only when a feature needs them:
           </p>
           <ul class="list-disc pl-5 space-y-1 text-slate-600">
-            <li><strong>Location (optional):</strong> to detect your current country (see Section 2).</li>
-            <li><strong>Files / storage:</strong> to let you export reports and backups (PDF, CSV, JSON) and to import a backup you choose.</li>
+            <li><strong>Files / photos you choose:</strong> to let you upload a profile photo or a custom background, export reports and backups (PDF, CSV, JSON), and import a backup you select. The app only accesses files you pick.</li>
+            <li><strong>Location (web only, optional):</strong> your browser may ask to detect your current country (see Section 2).</li>
             <li><strong>Network access:</strong> to sign in, sync, load ads and verify purchases.</li>
           </ul>
         </section>
