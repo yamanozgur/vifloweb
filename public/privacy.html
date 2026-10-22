@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy - Viflo: Visa & Stay Tracker</title>
-  <meta name="description" content="Privacy Policy for Viflo - Zero tracking, privacy-first visa and stay monitoring app.">
+  <meta name="description" content="Privacy Policy for Viflo - privacy-first, on-device visa and stay tracking. Learn what data we collect, how ads and purchases work, and how to delete your account.">
   <link rel="canonical" href="https://viflo.app/privacy">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -17,7 +17,7 @@
 </head>
 <body class="min-h-screen py-10 px-4 sm:px-6 antialiased">
   <div class="max-w-4xl mx-auto space-y-6">
-    
+
     <!-- Navigation Back Link -->
     <a href="/" class="inline-flex items-center gap-2 text-sm font-bold text-[#04aa92] hover:text-[#003837] transition-colors">
       &larr; Back to Viflo Home
@@ -25,7 +25,7 @@
 
     <!-- Main Container Card -->
     <main class="bg-white rounded-3xl p-6 sm:p-10 md:p-12 border border-[#04aa92]/15 shadow-xl shadow-[#04aa92]/5 space-y-8">
-      
+
       <!-- Header Section -->
       <header class="space-y-3 pb-6 border-b border-[#04aa92]/15">
         <div class="inline-block px-3 py-1 rounded-full bg-[#04aa92]/10 text-[#047867] text-xs font-bold uppercase tracking-wider border border-[#04aa92]/20">
@@ -35,69 +35,133 @@
           Privacy Policy
         </h1>
         <div class="flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-500">
-          <span>Effective Date: August 2026</span>
+          <span>Effective Date: October 2026</span>
           <span>&bull;</span>
           <span>URL: <a href="https://viflo.app/privacy" class="text-[#04aa92] underline">https://viflo.app/privacy</a></span>
           <span>&bull;</span>
-          <span>Version: 2.4.0</span>
+          <span>Version: 3.0.0</span>
         </div>
       </header>
 
       <!-- Summary Callout -->
       <div class="bg-[#f0fbf9] p-5 sm:p-6 rounded-2xl border border-[#04aa92]/25 text-[#003837] space-y-2">
-        <h2 class="font-bold text-base text-[#04aa92]">Zero-Tracking & On-Device Storage Philosophy</h2>
+        <h2 class="font-bold text-base text-[#04aa92]">Privacy-First, On-Device Storage Philosophy</h2>
         <p class="text-sm text-slate-700 leading-relaxed">
-          At <strong>Viflo</strong> (<a href="https://viflo.app" class="text-[#04aa92] font-semibold underline">https://viflo.app</a>), we believe your travel history, passport validity details, visa stamps, and Schengen stay counters belong exclusively to you. We do not sell your personal data, we do not track your location, and we display no third-party advertisements.
+          At <strong>Viflo</strong> (<a href="https://viflo.app" class="text-[#04aa92] font-semibold underline">https://viflo.app</a>), we believe your travel history, passport validity details, visa stamps, and Schengen stay counters belong to you. By default they stay on your device. We do not sell your personal data. The free version of the app shows advertising (see Section 4), and your passport, visa and travel records are never shared with advertisers.
         </p>
       </div>
 
       <!-- Content Sections -->
       <div class="space-y-6 text-sm sm:text-base text-slate-600 leading-relaxed">
-        
+
         <section class="space-y-2">
           <h2 class="text-xl font-bold text-[#003837]">1. Information We Collect</h2>
           <p>
-            Viflo operates on a strict principle of data minimization:
+            Viflo is designed around data minimization:
           </p>
           <ul class="list-disc pl-5 space-y-1 text-slate-600">
-            <li><strong>Local Travel Records:</strong> Country entry/exit dates, visa expirations, and passport numbers are stored locally within your device's encrypted app sandbox.</li>
-            <li><strong>Optional Cloud Backups:</strong> If you explicitly enable encrypted sync, your logs are encrypted end-to-end (AES-256) and can be deleted at any time.</li>
-            <li><strong>Diagnostic Logs:</strong> Fully anonymized crash logs aggregated by Apple App Store and Google Play are used exclusively to fix app stability issues.</li>
+            <li><strong>Local travel records:</strong> Country entry/exit dates, visa and residency details, passport information and your profile are stored locally on your device by default.</li>
+            <li><strong>Account (optional):</strong> If you create an account or sign in with email and password, Google, Apple or Facebook, we process your email address, display name and a unique account identifier through Google Firebase Authentication. You can use the app as a guest without an account.</li>
+            <li><strong>Cloud sync (optional):</strong> If you are signed in, your records may be backed up to Google Firebase (Cloud Firestore) so you can use them on several devices. Data is transmitted over encrypted TLS connections and stored by Google with encryption at rest.</li>
+            <li><strong>Support messages:</strong> If you contact us through the in-app form, we receive the name, email address and message you submit.</li>
+            <li><strong>Purchase information:</strong> When you buy Premium, we receive your subscription or purchase status (see Section 5). We never receive your payment card details.</li>
+            <li><strong>Advertising data:</strong> In the free version, Google AdMob collects the data described in Section 4.</li>
+            <li><strong>Diagnostic data:</strong> Crash and performance reports provided by Google Play and the Apple App Store are used only to fix stability issues.</li>
           </ul>
         </section>
 
         <section class="space-y-2">
-          <h2 class="text-xl font-bold text-[#003837]">2. Device Permissions</h2>
+          <h2 class="text-xl font-bold text-[#003837]">2. Location</h2>
           <p>
-            The app requests device permissions strictly when needed:
-          </p>
-          <ul class="list-disc pl-5 space-y-1 text-slate-600">
-            <li><strong>Notifications:</strong> To trigger local expiry countdowns for Schengen limits and passport renewals.</li>
-            <li><strong>Camera (Optional):</strong> For on-device scanning of physical visa stickers. Scans are processed locally without cloud transfer.</li>
-            <li><strong>Files / Storage:</strong> Solely to export generated PDF and CSV visa reports for embassies.</li>
-          </ul>
-        </section>
-
-        <section class="space-y-2">
-          <h2 class="text-xl font-bold text-[#003837]">3. Third-Party Services & Subscriptions</h2>
-          <p>
-            Payment transactions for Viflo Pro are processed entirely by Apple StoreKit and Google Play Billing. Viflo never handles, receives, or stores payment card information.
+            Location is optional. If you choose to detect your current country, the app may use your device's location permission or your IP address to find the country you are in. To do this, approximate coordinates or your IP address may be sent to third-party geocoding and IP-lookup services (for example BigDataCloud, OpenStreetMap Nominatim, ipwho.is, freeipapi.com and ipapi.co). We do not track your location in the background and we do not store location histories on our servers.
           </p>
         </section>
 
         <section class="space-y-2">
-          <h2 class="text-xl font-bold text-[#003837]">4. User Rights (GDPR & CCPA Compliance)</h2>
+          <h2 class="text-xl font-bold text-[#003837]">3. Device Permissions</h2>
           <p>
-            You retain 100% ownership of your data:
+            The app asks for permissions only when a feature needs them:
           </p>
           <ul class="list-disc pl-5 space-y-1 text-slate-600">
-            <li><strong>Export:</strong> Download your entire travel history as standard JSON or CSV files anytime.</li>
-            <li><strong>Erasure:</strong> Permanently wipe all data with a single tap in the app's settings.</li>
+            <li><strong>Location (optional):</strong> to detect your current country (see Section 2).</li>
+            <li><strong>Files / storage:</strong> to let you export reports and backups (PDF, CSV, JSON) and to import a backup you choose.</li>
+            <li><strong>Network access:</strong> to sign in, sync, load ads and verify purchases.</li>
           </ul>
+        </section>
+
+        <section class="space-y-2">
+          <h2 class="text-xl font-bold text-[#003837]">4. Advertising</h2>
+          <p>
+            The free version of Viflo displays banner ads served by <strong>Google AdMob</strong>. AdMob may collect and use your device's advertising identifier, IP address, and general device and app usage information to serve, measure and personalise ads. In the European Economic Area and the United Kingdom, we ask for your consent before personalised ads are shown. You can change your choices at any time in your device's ad settings (for example by resetting or deleting your advertising ID). Buying Premium removes ads. Your passport, visa and travel records are never shared with advertisers. See <a href="https://policies.google.com/technologies/ads" class="text-[#04aa92] underline">Google's advertising policies</a> for details.
+          </p>
+        </section>
+
+        <section class="space-y-2">
+          <h2 class="text-xl font-bold text-[#003837]">5. Purchases & Subscriptions</h2>
+          <p>
+            Payments for Viflo Premium are processed by Apple (App Store) or Google (Google Play). Viflo never handles, receives or stores payment card information. To verify and restore purchases, we use <strong>RevenueCat</strong>, which receives your purchase and subscription status together with an anonymous or account-based identifier. Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period, and can be managed or cancelled in your App Store or Google Play account settings.
+          </p>
+        </section>
+
+        <section class="space-y-2">
+          <h2 class="text-xl font-bold text-[#003837]">6. Service Providers</h2>
+          <p>
+            We rely on the following providers to run the app. They process data on our behalf under their own privacy policies and may process data outside your country, including in the United States:
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-slate-600">
+            <li><strong>Google Firebase</strong> (Authentication, Cloud Firestore): accounts and optional cloud sync.</li>
+            <li><strong>Google AdMob:</strong> advertising in the free version.</li>
+            <li><strong>RevenueCat:</strong> purchase verification and subscription status.</li>
+            <li><strong>Google Play / Apple App Store:</strong> distribution, payments and crash diagnostics.</li>
+            <li><strong>Geocoding and IP-lookup services:</strong> optional country detection (Section 2).</li>
+          </ul>
+          <p>We do not sell your personal data.</p>
+        </section>
+
+        <section class="space-y-2">
+          <h2 class="text-xl font-bold text-[#003837]">7. Retention & Your Rights (GDPR & CCPA)</h2>
+          <p>
+            Local data stays on your device until you delete it or uninstall the app. Cloud data is kept until you delete your account. You may request access to, correction of, export of, or deletion of your personal data at any time:
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-slate-600">
+            <li><strong>Export:</strong> download your travel history as JSON or CSV from the app.</li>
+            <li><strong>Erasure:</strong> delete local data from the app settings, or delete your account and cloud data as described below.</li>
+          </ul>
+        </section>
+
+        <section id="delete-account" class="space-y-2">
+          <h2 class="text-xl font-bold text-[#003837]">8. Delete Your Account</h2>
+          <p>
+            You can delete your account and all cloud data yourself, directly in the app: open <strong>Profile &rarr; Account &amp; Privacy &rarr; Delete My Account &amp; Data</strong> and confirm. This permanently removes your account and the data stored in the cloud. Data stored only on your device is removed when you delete it in the app or uninstall the app.
+          </p>
+          <p>
+            If you cannot access the app, email <a href="mailto:support@viflo.app" class="text-[#04aa92] underline">support@viflo.app</a> from the address linked to your account, with the subject "Delete my account", and we will delete your account and cloud data. Purchase records kept by Apple, Google and RevenueCat are governed by their own policies and legal retention requirements.
+          </p>
+        </section>
+
+        <section class="space-y-2">
+          <h2 class="text-xl font-bold text-[#003837]">9. Children</h2>
+          <p>
+            Viflo is not directed to children under 13 (or under the minimum age in your country), and we do not knowingly collect their personal data.
+          </p>
+        </section>
+
+        <section class="space-y-2">
+          <h2 class="text-xl font-bold text-[#003837]">10. Not Legal Advice</h2>
+          <p>
+            Viflo is an independent personal planning tool. It does not provide official legal, tax or immigration advice and is not affiliated with any government, consulate or embassy. Visa rules change frequently; always confirm requirements with official sources.
+          </p>
+        </section>
+
+        <section class="space-y-2">
+          <h2 class="text-xl font-bold text-[#003837]">11. Changes to This Policy</h2>
+          <p>
+            We may update this policy from time to time. The effective date above shows the latest version.
+          </p>
         </section>
 
         <section class="space-y-3 pt-6 border-t border-[#04aa92]/15">
-          <h2 class="text-xl font-bold text-[#003837]">5. Contact Us</h2>
+          <h2 class="text-xl font-bold text-[#003837]">12. Contact Us</h2>
           <p>
             For any inquiries or privacy-related questions, please contact our support team at:
           </p>
