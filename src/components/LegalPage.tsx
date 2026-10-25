@@ -70,7 +70,7 @@ export const LegalPage: React.FC<LegalPageProps> = ({ onBack, onOpenSupport }) =
               Non-Affiliation & Government Disclaimer
             </div>
             <p className="text-[#047867] text-sm md:text-base leading-relaxed font-medium md:pl-11">
-              Viflo is developed independently by FlowSpot Studios. Viflo is not affiliated with, endorsed by, authorized by, or connected to the European Union, European Commission, Schengen Area authorities, or any national embassy, consulate, or border control agency worldwide. All official immigration and visa regulations must be confirmed directly with official government sources.
+              Viflo is developed independently. Viflo is not affiliated with, endorsed by, authorized by, or connected to the European Union, European Commission, Schengen Area authorities, or any national embassy, consulate, or border control agency worldwide. All official immigration and visa regulations must be confirmed directly with official government sources.
             </p>
           </div>
 
@@ -81,7 +81,7 @@ export const LegalPage: React.FC<LegalPageProps> = ({ onBack, onOpenSupport }) =
               Limitation of Liability & &quot;As-Is&quot; Service
             </div>
             <p className="text-[#047867] text-sm md:text-base leading-relaxed font-medium md:pl-11">
-              All calculations (including Schengen 90/180 rolling window estimates, passport validity warnings, residency permit counters, and visa entry limits) are provided strictly for personal reference on an &quot;AS-IS&quot; and &quot;AS-AVAILABLE&quot; basis without warranties of any kind. FlowSpot Studios and its developers accept no liability for any denied entries, border detentions, overstay fines, flight cancellations, deportation proceedings, missed travel connections, or financial damages resulting from reliance on this application.
+              All calculations (including Schengen 90/180 rolling window estimates, passport validity warnings, residency permit counters, and visa entry limits) are provided strictly for personal reference on an &quot;AS-IS&quot; and &quot;AS-AVAILABLE&quot; basis without warranties of any kind. Viflo and its developers accept no liability for any denied entries, border detentions, overstay fines, flight cancellations, deportation proceedings, missed travel connections, or financial damages resulting from reliance on this application.
             </p>
           </div>
 
@@ -144,7 +144,7 @@ export const LegalPage: React.FC<LegalPageProps> = ({ onBack, onOpenSupport }) =
         {/* Footer Acknowledgement */}
         <div className="flex items-center justify-center gap-2 text-xs font-bold text-[#047867] pt-4">
           <CheckCircle2 className="w-4 h-4 text-[#0da98b]" />
-          <span>FlowSpot Studios · Viflo Privacy Policy & Terms of Service</span>
+          <span>Viflo Privacy Policy & Terms of Service</span>
         </div>
       </main>
 
