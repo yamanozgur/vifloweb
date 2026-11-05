@@ -20,7 +20,7 @@ export const FaqSection: React.FC = () => {
     },
     {
       question: 'Is my passport and travel location data secure?',
-      answer: 'Yes, 100%. Viflo is built with a privacy-first local architecture. Your passport credentials, visa details, and border crossing history remain encrypted directly on your phone. We do not sell or store your personal travel history on external servers.'
+      answer: 'Your records stay on your device by default. If you choose to create an account for cloud backup and sync, your data is sent over encrypted connections (TLS) and stored with our cloud provider (Firebase). We do not sell your personal data, and you can delete your account and cloud data anytime from the app.'
     },
     {
       question: 'Does Viflo work offline without internet connection?',

@@ -59,7 +59,7 @@ export const Pricing: React.FC = () => {
             </div>
 
             <a 
-              href="https://play.google.com/store/apps/details?id=app.vercel.visaflow_mu.twa"
+              href="https://play.google.com/store/apps/details?id=app.vercel.visaflow_mu.twa&referrer=utm_source%3Dviflo.app%26utm_medium%3Dwebsite%26utm_campaign%3Dlanding%26utm_content%3Dpricing_top"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full py-3.5 rounded-2xl bg-[#f0fbf9] hover:bg-[#e0f4f1] text-[#003837] font-bold text-center block border border-[#04aa92]/25 transition-colors cursor-pointer"
@@ -202,7 +202,7 @@ export const Pricing: React.FC = () => {
 
             <div className="space-y-2 pt-2">
               <a 
-                href="https://play.google.com/store/apps/details?id=app.vercel.visaflow_mu.twa"
+                href="https://play.google.com/store/apps/details?id=app.vercel.visaflow_mu.twa&referrer=utm_source%3Dviflo.app%26utm_medium%3Dwebsite%26utm_campaign%3Dlanding%26utm_content%3Dpricing_bottom"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-3.5 rounded-2xl bg-white hover:bg-emerald-50 text-[#003837] font-extrabold text-center block shadow-lg transition-all transform hover:-translate-y-0.5 cursor-pointer"

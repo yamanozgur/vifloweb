@@ -190,7 +190,7 @@ export const HowItWorks: React.FC = () => {
             </p>
           </div>
           <a 
-            href="https://play.google.com/store/apps/details?id=app.vercel.visaflow_mu.twa"
+            href="https://play.google.com/store/apps/details?id=app.vercel.visaflow_mu.twa&referrer=utm_source%3Dviflo.app%26utm_medium%3Dwebsite%26utm_campaign%3Dlanding%26utm_content%3Dhow_it_works"
             target="_blank"
             rel="noopener noreferrer"
             className="whitespace-nowrap shrink-0 px-6 py-3.5 rounded-2xl bg-[#04aa92] hover:bg-[#039882] text-white font-extrabold text-sm shadow-md shadow-[#04aa92]/25 transition-all transform hover:-translate-y-0.5 cursor-pointer"

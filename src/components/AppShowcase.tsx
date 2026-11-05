@@ -121,15 +121,15 @@ export const AppShowcase: React.FC = () => {
       highlights: [
         {
           title: '190+ country database',
-          desc: 'Always up-to-date entry regulations and maximum stay limits.'
+          desc: 'Entry rules and maximum stays, updated regularly, with the last update date shown in the app.'
         },
         {
           title: 'Dual passport optimizer',
           desc: 'Compare your passports side-by-side to choose the best one.'
         },
         {
-          title: 'One-tap embassy reference',
-          desc: 'Quick access to official consulate guidelines.'
+          title: 'Always check official sources',
+          desc: 'Reference data only. Confirm requirements with official sources before you travel.'
         }
       ],
       image: store4, 
@@ -138,23 +138,23 @@ export const AppShowcase: React.FC = () => {
     },
     { 
       id: 5,
-      badge: 'DATA BACKUP & EMBASSY REPORTS',
-      title: 'Encrypted Sync & Official Reports',
-      subtitle: 'Private encrypted storage with one-tap official PDF & CSV exports.',
-      description: 'Your travel records remain strictly yours. Sync securely across your devices or generate embassy-compliant travel logs for visa applications.',
+      badge: 'BACKUP & EXPORT',
+      title: 'Back Up, Export and Stay in Control',
+      subtitle: 'Cloud backup, PDF and CSV export of your travel history, and data deletion anytime.',
+      description: 'Your travel records stay on your device by default. Back up to a file, sign in for optional cloud sync, or export your travel history for your own records and applications.',
       icon: FileText,
       highlights: [
         {
-          title: 'Embassy-ready PDF reports',
-          desc: 'Clean, formatted travel histories for visa submissions.'
+          title: 'PDF and CSV reports',
+          desc: 'Clean, formatted travel histories for your own records or applications.'
         },
         {
           title: 'Full data ownership',
           desc: 'Instant JSON backup & restore without vendor lock-in.'
         },
         {
-          title: 'Encrypted cloud sync',
-          desc: 'Cross-device synchronization with GDPR-compliant data erasure.'
+          title: 'Optional cloud sync',
+          desc: 'Cross-device sync only if you sign in, with account and data deletion in the app.'
         }
       ],
       image: store5, 
@@ -164,8 +164,8 @@ export const AppShowcase: React.FC = () => {
     { 
       id: 6,
       badge: 'PROACTIVE RISK ALERTS',
-      title: 'Smart Alerts Before You Risk an Overstay',
-      subtitle: 'Passport expiry warnings and rolling limit reminders to keep you safe.',
+      title: 'Get Reminded Before Limits Run Out',
+      subtitle: 'Passport expiry warnings and rolling Schengen limit reminders.',
       description: 'Get ahead of border issues with automated alerts for passport expiration thresholds, visa end dates, and Schengen allowance limits.',
       icon: BellRing,
       highlights: [
